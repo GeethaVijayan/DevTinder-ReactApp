@@ -1,6 +1,6 @@
 import React from 'react'
 
-function feed() {
+function Feed() {
   return (
     <div>
       <p>Feed Component</p>
@@ -8,4 +8,4 @@ function feed() {
   )
 }
 
-export default feed
+export default Feed

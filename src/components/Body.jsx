@@ -1,10 +1,10 @@
 import Footer from "./Footer";
 import NavBar from "./NavBar";
 import { Outlet,useNavigate } from "react-router-dom"; 
-import BASE_URL from '../utils/constants';
+import {BASE_URL} from '../utils/constants';
 import axios from "axios";
-import { useDispatch } from "react-redux";
-import { useEffect,useSelector} from "react";
+import { useDispatch,useSelector } from "react-redux";
+import { useEffect} from "react";
 
 import { addUser } from "../utils/userSlice";
 
@@ -16,7 +16,7 @@ const Body = () => {
   *  when request comes frst will checkh if data is present in store or not . if not we will do api call
   */
     const userData = useSelector((store) => store.user);
-
+   
 
 
   /**
@@ -26,6 +26,7 @@ const Body = () => {
 
 
  const fetchUser = async () => {
+  if(userData) return;  // if user data is present in store we will not make api call again and again
       try {
         const user = await axios.get(BASE_URL + "/profile/view", {
           withCredentials: true,

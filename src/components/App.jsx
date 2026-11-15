@@ -4,6 +4,8 @@ import appStore from "../utils/appStore";
 import Body from "./Body";
 import Login from "./login";
 import Profile from "./profile";
+import Feed from "./feed";
+
 
 function App() {
   return (
@@ -12,8 +14,8 @@ function App() {
       <Routes>
        <Route path="/" element={<Body />}>
      <Route path="/login" element={<Login />} />
-     <Route path="profile" element={<Profile />} />
-     <Route path="/" element={<feed />} />
+     <Route path="/profile" element={<Profile />} />
+    <Route path="/" element={<Feed />} />
    </Route>
       </Routes>
     </BrowserRouter>

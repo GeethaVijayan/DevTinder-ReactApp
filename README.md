@@ -57,7 +57,9 @@ navbar updates the user logged in details
 navbar upddate s soon as the user logs in
 Refactor our code to add consstants file  + create a componnet 
 
-
+you should not be accesssed to other pages without login (authentication added )
+when you login token you will get from backend and stores in cokkies in browser 
+if token is not present we will redirect to login page
 
 
 

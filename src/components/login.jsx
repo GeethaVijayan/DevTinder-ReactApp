@@ -32,7 +32,7 @@ const handleLogin = async () =>{
   * now in store action addUser will add user with response data and store it in redux store
   */
  dispatch(addUser(res.data));  // dispatching action to store data in redux store
- return navigate("/");  // after login we need to navigate to profile page
+ return navigate("/feed");  // after login we need to navigate to feed page
    }
    catch(error){
     console.error(error)
