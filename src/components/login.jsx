@@ -12,6 +12,8 @@ const Login = () => {
 
 const [emailId, setEmailId] = useState("jasonsanjay@gmail.com");
 const [password, setPassword] = useState("Test@123");
+const [error, setError] = useState("");
+
 /**once login is success we get response of each individual user data *
  * we need to store that respponse in our redux store */
 
@@ -35,6 +37,7 @@ const handleLogin = async () =>{
  return navigate("/feed");  // after login we need to navigate to feed page
    }
    catch(error){
+    setError(error || "Login failed. Please try again.");
     console.error(error)
    }
 
@@ -61,6 +64,7 @@ const handleLogin = async () =>{
   onChange={(e) => setPassword(e.target.value)}
   placeholder="Type here" />
 </fieldset>
+  <p className ="text-red-500">{error}</p>
     <div className="card-actions justify-center">
       <button className="btn btn-primary" onClick={handleLogin}>
         Login

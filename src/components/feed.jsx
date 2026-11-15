@@ -1,11 +1,10 @@
-import React from 'react'
-
-function Feed() {
+const Feed = () => {
   return (
     <div>
-      <p>Feed Component</p>
+      <h2>Feed</h2>
+      <p>This is the feed page.</p>
     </div>
-  )
-}
+  );
+};
 
-export default Feed
+export default Feed;
