@@ -62,7 +62,11 @@ when you login token you will get from backend and stores in cokkies in browser
 if token is not present we will redirect to login page
 build Logout feature
 
-
+get the feed (axios api) and add the feed in store 
+build the user card on the feed
+Edit profile Feature
+save the profile . Edit data and save the profile
+show Toast Messge on save of profile
 
 
 
