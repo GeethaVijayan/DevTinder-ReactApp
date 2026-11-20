@@ -61,8 +61,8 @@ const handleLogout = async()=>{
               <span className="badge">New</span>
             </Link>
           </li>
-          <li>
-          <Link to="/connections-sent">Connections</Link></li>
+          <li><Link to="/connections-sent">Connections</Link></li>
+          <li><Link to="/request-received">Requests</Link></li>
           <li><button onClick={handleLogout}>Logout</button></li>
         </ul>
       </div>

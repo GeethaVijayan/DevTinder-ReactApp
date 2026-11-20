@@ -67,7 +67,8 @@ build the user card on the feed
 Edit profile Feature
 save the profile . Edit data and save the profile
 show Toast Messge on save of profile
-see all my connections in connections Page
+New Page to see all my connections in connections Page (connection Request i have sent)
+New page to see all my request (request received)
 
 
 

@@ -6,6 +6,8 @@ import Login from "./login";
 import Profile from "./profile";
 import Feed from "./feed";
 import Connections from "./connections";
+import Request from "./request";
+
 
 
 function App() {
