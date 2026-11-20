@@ -5,6 +5,7 @@ import Body from "./Body";
 import Login from "./login";
 import Profile from "./profile";
 import Feed from "./feed";
+import Connections from "./connections";
 
 
 function App() {
@@ -16,6 +17,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/feed" element={<Feed />} />
+        <Route path="/connections-sent" element={<Connections/>} />
+        <Route path="/request-received" element={<Request />} />
       </Route>
     </Routes>
   </BrowserRouter>
