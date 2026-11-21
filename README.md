@@ -69,6 +69,11 @@ save the profile . Edit data and save the profile
 show Toast Messge on save of profile
 New Page to see all my connections in connections Page (connection Request i have sent)
 New page to see all my request (request received)
+New Feature -accept,reject connection Request
+
+Send/ignore user card from feed
+signup new user 
+E2E Testing
 
 
 
