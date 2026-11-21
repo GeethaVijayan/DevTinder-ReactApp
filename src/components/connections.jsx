@@ -33,27 +33,29 @@ const Connections = () => {
   return (
    <div className="my-10">
       <h1 className="text-center text-2xl font-bold">Connections</h1>
-      {connections.map((connection) => (
-        <div
-          key={connection._id}
-          className="flex items-center gap-4 m-4 p-4 rounded-lg bg-base-300 w-1/2 mx-auto"
-        >
-          <img
-            alt="photo"
-            className="w-16 h-16 rounded-full object-cover"
-            src={connection.photoUrl}
-          />
-          <div>
-            <h2 className="font-bold">
-              {connection.firstName} {connection.lastName}
-            </h2>
-            {connection.age && connection.gender && (
-              <p>{connection.age}, {connection.gender}</p>
-            )}
-            <p>{connection.about}</p>
-          </div>
+      {connections
+    .filter((connection) => connection)   // drop null entries (deleted users)
+    .map((connection) => (
+      <div
+        key={connection._id}
+        className="flex items-center gap-4 m-4 p-4 rounded-lg bg-base-300 w-1/2 mx-auto"
+      >
+        <img
+          alt="photo"
+          className="w-16 h-16 rounded-full object-cover"
+          src={connection.photoUrl}
+        />
+        <div>
+          <h2 className="font-bold">
+            {connection.firstName} {connection.lastName}
+          </h2>
+          {connection.age && connection.gender && (
+            <p>{connection.age}, {connection.gender}</p>
+          )}
+          <p>{connection.about}</p>
         </div>
-      ))}
+      </div>
+    ))}
     </div>
   )
 }

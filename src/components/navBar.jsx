@@ -34,8 +34,8 @@ const handleLogout = async()=>{
   return (
     <div className="navbar bg-gray-900 text-white shadow-sm">
       <div className="flex-1">
-        <Link to="/" className="btn btn-ghost text-xl text-white">
-          👩‍💻 Dev Tinder
+        <Link to="/feed" className="btn btn-ghost text-xl text-white">
+          Tinder
         </Link>
       </div>
 

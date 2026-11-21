@@ -16,24 +16,28 @@ const Feed = () => {
    
      const dispatch = useDispatch();
 
- const getFeed = async()=>{
-   
-   /**check if feed is already there or not if feed is already present in store no need for appi call*/
-   if(feed) return; 
-    try {
-      const feedData = await axios.get(BASE_URL + "/user/feed", {
+
+     const getFeed = async () => {
+         /**check if feed is already there or not if feed is already present in store no need for appi call*/
+
+  if (feed && feed.length > 0) return;
+  try {
+    const feedData = await axios.get(BASE_URL + "/user/feed", {
       withCredentials: true,
     });
-    /**once i get the feed I need to add it to store .
+     /**once i get the feed I need to add it to store .
      * for add FeedSlice we need to add it in addFeed so we need tto create new slice
      */
-    console.log(feedData.data, 'feed data');
-    dispatch(addFeed(feedData.data));  // Dispatching action to add feed data to Redux store
-    /**Through dispatch i'm adding data to the store and for  */
-    } catch (err) {
-      console.error(err);
-    }
- }
+    console.log("feed response:", feedData.data);
+    dispatch(addFeed(feedData.data));
+  } catch (err) {
+    console.error("feed fetch failed:", err);
+    console.error("Feed error:", err.stack);
+  //res.status(500).json({ message: err.message });
+  }
+};
+
+ 
 
  useEffect(() => {
   getFeed();
@@ -41,13 +45,14 @@ const Feed = () => {
 
 if (!feed) return null;
 
+
 if (feed.length === 0) {
   return <h1 className="text-center my-10">No new users found</h1>;
 }
 
 return (
   <div className="flex justify-center my-10">
-    <UserCard user={feed[0]} />
+   <UserCard key={feed[0]._id} user={feed[0]} />
   </div>
 );
 };

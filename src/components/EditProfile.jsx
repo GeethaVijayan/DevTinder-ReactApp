@@ -80,17 +80,16 @@ const EditProfile = ({ user }) => {
               ></textarea>
             </fieldset>
             <fieldset className="fieldset">
-              <select
-                defaultValue="Gender"
-                className="select"
-                value={gender}
-                onChange={(e) => setGender(e.target.value)}
-              >
-                <option disabled={true}>Gender</option>
-                <option>male</option>
-                <option>female</option>
-                <option>others</option>
-              </select>
+            <select
+  className="select"
+  value={gender}
+  onChange={(e) => setGender(e.target.value)}
+>
+  <option value="">Select gender</option>
+  <option value="male">male</option>
+  <option value="female">female</option>
+  <option value="others">others</option>
+</select>
             </fieldset>
             <fieldset className="fieldset">
               <legend className="fieldset-legend">PhotoUrl:</legend>
