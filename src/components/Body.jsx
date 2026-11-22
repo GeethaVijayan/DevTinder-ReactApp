@@ -1,5 +1,5 @@
-import Footer from "./Footer";
-import NavBar from "./NavBar";
+import Footer from "./footer";
+import NavBar from "./navBar";
 import { Outlet,useNavigate } from "react-router-dom"; 
 import {BASE_URL} from '../utils/constants';
 import axios from "axios";

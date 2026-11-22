@@ -87,3 +87,32 @@ Body
   Route =/login =>login Page
   Route =/connections  =>ConnectionsPage
   Route =/profile =>profile Pge
+
+  ---------
+  Deployment 
+  Create account in aws(free plan)
+  login into site
+  create server machine ubuntu and launch ec2 instance 
+  it will give secret-key pair .pem file
+  Download secret .pem file 
+ Open an SSH client (authorize pem file )
+Locate or download your private key file
+Ensure your key is not publicly viewable
+connect through this command 
+ open cmd and go to ffolder where .pem file is downloaded 
+  ssh -i "DevTinder Secret.pem" ubuntu@ec2-32-236-195-147.ap-southeast-2.compute.amazonaws.com
+  now you have machine in server and we need to make that machhine compatibale before downloading project so make sure machine has all project dependencies 
+  and then Download and install local same version of node(v24.22.2)
+  (now this new maachine in server don't have code)
+  1. we need to get this code from github
+    git clone https://github.com/GeethaVijayan/DevTinder-ReactApp.git (frontend) in server machine
+    git clone https://github.com/GeethaVijayan/DevTinder.git  (backend) in server machine
+
+    -We first Deploy our Frontend Project(DevTinder ReactApp)
+      in local we will run application using npm run dev  
+        but for production first we need to create build of the project 
+            we are using vite - It is bundler (bundle of whole project and build it like webpack)
+             bundles project , build it and gives dist Folder (makes production ready code and gives it in dist folder )
+          we need to build in remote machine (aws instance)
+           - it says vite not found . beacuse its a new machine whchi still require from our end to install depenedices
+            Npm install( frst clone , npm install and then npm run build )
