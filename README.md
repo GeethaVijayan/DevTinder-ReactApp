@@ -89,30 +89,59 @@ Body
   Route =/profile =>profile Pge
 
   ---------
-  Deployment 
-  Create account in aws(free plan)
-  login into site
-  create server machine ubuntu and launch ec2 instance 
-  it will give secret-key pair .pem file
-  Download secret .pem file 
- Open an SSH client (authorize pem file )
-Locate or download your private key file
-Ensure your key is not publicly viewable
-connect through this command 
- open cmd and go to ffolder where .pem file is downloaded 
-  ssh -i "DevTinder Secret.pem" ubuntu@ec2-32-236-195-147.ap-southeast-2.compute.amazonaws.com
-  now you have machine in server and we need to make that machhine compatibale before downloading project so make sure machine has all project dependencies 
-  and then Download and install local same version of node(v24.22.2)
-  (now this new maachine in server don't have code)
-  1. we need to get this code from github
-    git clone https://github.com/GeethaVijayan/DevTinder-ReactApp.git (frontend) in server machine
-    git clone https://github.com/GeethaVijayan/DevTinder.git  (backend) in server machine
+  Deployment  (refer Word for elaborated version)
 
-    -We first Deploy our Frontend Project(DevTinder ReactApp)
-      in local we will run application using npm run dev  
-        but for production first we need to create build of the project 
-            we are using vite - It is bundler (bundle of whole project and build it like webpack)
-             bundles project , build it and gives dist Folder (makes production ready code and gives it in dist folder )
-          we need to build in remote machine (aws instance)
-           - it says vite not found . beacuse its a new machine whchi still require from our end to install depenedices
-            Npm install( frst clone , npm install and then npm run build )
+     create Account in aws
+     signup on aws
+     -Launch ec2 instance 
+     -chmod 400 <secret>.pem (folder)
+     -
+     -Install node version 24.22.2
+     -git clone
+    Frontend 
+      npm install ->install dependencies
+      npm run build
+      sudo apt update
+      sudo apt install nginx
+      sudo systemctl start nginx
+      sudo systemctl enable nginx
+      copy code from dist(build files) to /var/www/html/
+      Enable port :80 of your instance 
+
+- Backend
+   -Updated Db password
+   -allowed ec2 instance public Ip on mongo server
+   -npm install pm2 -g
+   -pm2 start npm --name "devtinder-api" --start
+   -pm2 logs
+   -pm2 list,pm2 flush <name of process> eg: pm2 flush devTinder-api ,
+     pm2 stop <name>
+     pm2 delete <name>
+
+     config nginx -/etc/nginx/sites-available/default
+     restart nginx -sudo systemctl restart nginx
+     modify baseurl in frontend project to "/api" (BASURL -  "http://localhost:9000" to /api)
+
+     **NGINx Config
+
+        Merge Frontend with backend 
+ Frontend : http://52.62.161.176/
+Backedn : http://52.62.161.176/9000
+
+If we map domain name to ip 
+ DevTinder = http://52.62.161.176:
+
+Then it will become 
+
+Frontend : Devtinder.com
+Backedn : Devtinder.com /9000  =>I need to map domain name like this  Devtinder.com/api
+
+We will not use port number that is not best practice 
+
+How we will map 
+             Portnumber to api
+
+before changing ip to Domain name we are converting like this 
+ ip/api/feed
+   instead ip/9000/feed 
+   using port number is not good pratcise
